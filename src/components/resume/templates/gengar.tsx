@@ -120,6 +120,34 @@ function Header() {
 						</div>
 					)}
 
+					{basics.nationality && (
+						<div className="basics-item-nationality">
+							<PageIcon icon="flag" />
+							<span>{basics.nationality}</span>
+						</div>
+					)}
+
+					{basics.dateOfBirth && (
+						<div className="basics-item-dob">
+							<PageIcon icon="calendar" />
+							<span>{basics.dateOfBirth}</span>
+						</div>
+					)}
+
+					{basics.maritalStatus && (
+						<div className="basics-item-marital">
+							<PageIcon icon="heart" />
+							<span>{basics.maritalStatus}</span>
+						</div>
+					)}
+
+					{basics.visaStatus && (
+						<div className="basics-item-visa">
+							<PageIcon icon="identification-card" />
+							<span>{basics.visaStatus}</span>
+						</div>
+					)}
+
 					{basics.customFields.map((field) => (
 						<div key={field.id} className="basics-item-custom">
 							<PageIcon icon={field.icon} />

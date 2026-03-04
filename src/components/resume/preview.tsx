@@ -22,6 +22,7 @@ import { DittoTemplate } from "./templates/ditto";
 import { GengarTemplate } from "./templates/gengar";
 import { GlalieTemplate } from "./templates/glalie";
 import { KakunaTemplate } from "./templates/kakuna";
+import { KhaleejiTemplate } from "./templates/khaleeji";
 import { LaprasTemplate } from "./templates/lapras";
 import { LeafishTemplate } from "./templates/leafish";
 import { OnyxTemplate } from "./templates/onyx";
@@ -45,6 +46,7 @@ function getTemplateComponent(template: Template) {
 		.with("gengar", () => GengarTemplate)
 		.with("glalie", () => GlalieTemplate)
 		.with("kakuna", () => KakunaTemplate)
+		.with("khaleeji", () => KhaleejiTemplate)
 		.with("lapras", () => LaprasTemplate)
 		.with("leafish", () => LeafishTemplate)
 		.with("onyx", () => OnyxTemplate)

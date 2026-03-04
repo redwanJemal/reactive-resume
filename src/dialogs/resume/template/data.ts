@@ -67,6 +67,13 @@ export const templates = {
 		tags: ["Single-column", "ATS friendly", "Compact", "Efficient", "Entry level", "Internship", "Magenta accent"],
 		sidebarPosition: "none",
 	},
+	khaleeji: {
+		name: "Khaleeji",
+		description: msg`Two-column Gulf-optimized template with photo, nationality, visa status, and personal details in the sidebar. Designed for Gulf job markets with full RTL/Arabic support.`,
+		imageUrl: "/templates/jpg/khaleeji.jpg",
+		tags: ["Two-column", "Gulf", "Arabic", "RTL", "Photo", "Visa status", "Nationality", "Professional"],
+		sidebarPosition: "left",
+	},
 	lapras: {
 		name: "Lapras",
 		description: msg`Single-column; polished and serious for senior or enterprise-level positions.`,

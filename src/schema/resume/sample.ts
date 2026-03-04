@@ -23,6 +23,10 @@ export const sampleResumeData: ResumeData = {
 			url: "https://davidkowalski.games",
 			label: "davidkowalski.games",
 		},
+		nationality: "",
+		dateOfBirth: "",
+		maritalStatus: "",
+		visaStatus: "",
 		customFields: [
 			{
 				id: "019bef5a-0477-77e0-968b-5d0e2ecb34e3",

@@ -9,6 +9,7 @@ export const templateSchema = z.enum([
 	"gengar",
 	"glalie",
 	"kakuna",
+	"khaleeji",
 	"lapras",
 	"leafish",
 	"onyx",

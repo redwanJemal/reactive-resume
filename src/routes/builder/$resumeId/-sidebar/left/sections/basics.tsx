@@ -137,6 +137,77 @@ function BasicsSectionForm() {
 					)}
 				/>
 
+				{/* Gulf CV Fields */}
+				<div className="space-y-4 border-t pt-4">
+					<p className="font-medium text-muted-foreground text-xs uppercase tracking-wide">
+						<Trans>Gulf CV Fields</Trans>
+					</p>
+
+					<FormField
+						control={form.control}
+						name="nationality"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>
+									<Trans>Nationality</Trans>
+								</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="e.g. Indian, Filipino, Egyptian" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="dateOfBirth"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>
+									<Trans>Date of Birth</Trans>
+								</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="e.g. 1990-01-15" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="maritalStatus"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>
+									<Trans>Marital Status</Trans>
+								</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="e.g. Single, Married" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
+					<FormField
+						control={form.control}
+						name="visaStatus"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>
+									<Trans>Visa Status</Trans>
+								</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="e.g. Resident, Visit Visa, Citizen" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
+
 				<CustomFieldsSection onSubmit={onSubmit} />
 			</form>
 		</Form>

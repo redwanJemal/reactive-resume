@@ -1,4 +1,13 @@
-import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import {
+	CalendarIcon,
+	EnvelopeIcon,
+	FlagIcon,
+	GlobeIcon,
+	HeartIcon,
+	IdentificationCardIcon,
+	MapPinIcon,
+	PhoneIcon,
+} from "@phosphor-icons/react";
 import { cn } from "@/utils/style";
 import { getSectionComponent } from "../shared/get-section-component";
 import { PageIcon } from "../shared/page-icon";
@@ -81,6 +90,31 @@ function Header() {
 						<div className="basics-item-website">
 							<GlobeIcon />
 							<PageLink {...basics.website} />
+						</div>
+					)}
+
+					{basics.nationality && (
+						<div className="basics-item-nationality">
+							<FlagIcon />
+							<span>{basics.nationality}</span>
+						</div>
+					)}
+					{basics.dateOfBirth && (
+						<div className="basics-item-dob">
+							<CalendarIcon />
+							<span>{basics.dateOfBirth}</span>
+						</div>
+					)}
+					{basics.maritalStatus && (
+						<div className="basics-item-marital">
+							<HeartIcon />
+							<span>{basics.maritalStatus}</span>
+						</div>
+					)}
+					{basics.visaStatus && (
+						<div className="basics-item-visa">
+							<IdentificationCardIcon />
+							<span>{basics.visaStatus}</span>
 						</div>
 					)}
 

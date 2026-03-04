@@ -82,6 +82,26 @@ export const basicsSchema = z.object({
 	phone: z.string().describe("The phone number of the author of the resume."),
 	location: z.string().describe("The location of the author of the resume."),
 	website: urlSchema.describe("The website of the author of the resume."),
+	nationality: z
+		.string()
+		.catch("")
+		.describe("The nationality of the author of the resume (commonly required in Gulf CVs)."),
+	dateOfBirth: z
+		.string()
+		.catch("")
+		.describe("The date of birth of the author (commonly required in Gulf CVs). Format: YYYY-MM-DD or any string."),
+	maritalStatus: z
+		.string()
+		.catch("")
+		.describe(
+			"The marital status of the author (commonly required in Gulf CVs). E.g. Single, Married, Divorced, Widowed.",
+		),
+	visaStatus: z
+		.string()
+		.catch("")
+		.describe(
+			"The visa/residency status of the author (commonly required in Gulf CVs). E.g. Resident, Visit Visa, Citizen.",
+		),
 	customFields: z.array(customFieldSchema).describe("The custom fields to display on the resume."),
 });
 
