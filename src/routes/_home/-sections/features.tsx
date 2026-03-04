@@ -8,15 +8,14 @@ import {
 	DotsThreeIcon,
 	FileCssIcon,
 	FilesIcon,
-	GithubLogoIcon,
 	GlobeIcon,
 	type Icon,
 	KeyIcon,
 	LayoutIcon,
 	LockSimpleIcon,
 	PaletteIcon,
-	ProhibitIcon,
 	ShieldCheckIcon,
+	SparkleIcon,
 	TranslateIcon,
 } from "@phosphor-icons/react";
 import { motion } from "motion/react";
@@ -41,16 +40,16 @@ const getFeatures = (): Feature[] => [
 		description: t`Completely free, forever, no hidden costs.`,
 	},
 	{
-		id: "open-source",
-		icon: GithubLogoIcon,
-		title: t`Open Source`,
-		description: t`By the community, for the community.`,
+		id: "gulf-optimized",
+		icon: GlobeIcon,
+		title: t`Gulf-Optimized`,
+		description: t`Tailored for Saudi, UAE, Qatar, Kuwait, Bahrain & Oman job markets.`,
 	},
 	{
-		id: "no-ads",
-		icon: ProhibitIcon,
-		title: t`No Advertising, No Tracking`,
-		description: t`For a secure and distraction-free experience.`,
+		id: "privacy-first",
+		icon: ShieldCheckIcon,
+		title: t`Privacy First`,
+		description: t`Your data stays yours. We never sell or share your information.`,
 	},
 	{
 		id: "data-security",
@@ -59,16 +58,16 @@ const getFeatures = (): Feature[] => [
 		description: t`Your data is secure, and never shared or sold to anyone.`,
 	},
 	{
-		id: "self-host",
-		icon: CloudArrowUpIcon,
-		title: t`Self-Host with Docker`,
-		description: t`You also have the option to deploy on your own servers using the Docker image.`,
+		id: "ai-powered",
+		icon: SparkleIcon,
+		title: t`AI-Powered`,
+		description: t`Let AI help you write, improve, and tailor your resume for Gulf employers.`,
 	},
 	{
 		id: "languages",
 		icon: TranslateIcon,
 		title: t`Multilingual`,
-		description: t`Available in multiple languages. If you would like to contribute, check out Crowdin.`,
+		description: t`Available in Arabic, English, and 50+ other languages.`,
 	},
 	{
 		id: "auth",
@@ -78,7 +77,7 @@ const getFeatures = (): Feature[] => [
 	},
 	{
 		id: "2fa",
-		icon: ShieldCheckIcon,
+		icon: CloudArrowUpIcon,
 		title: t`Passkeys & 2FA`,
 		description: t`Enhance the security of your account with additional layers of protection.`,
 	},
@@ -184,8 +183,8 @@ export function Features() {
 
 				<p className="max-w-2xl text-muted-foreground leading-relaxed">
 					<Trans>
-						Everything you need to create, customize, and share professional resumes. Built with privacy in mind,
-						powered by open source, and completely free forever.
+						Everything you need to create, customize, and share professional resumes. Built for Gulf professionals,
+						completely free.
 					</Trans>
 				</p>
 			</motion.div>

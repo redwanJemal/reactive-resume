@@ -3,10 +3,7 @@ import { Trans } from "@lingui/react/macro";
 import { CaretRightIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/utils/style";
-
-const crowdinUrl = "https://crowdin.com/project/reactive-resume";
 
 type FAQItemData = {
 	question: string;
@@ -16,11 +13,11 @@ type FAQItemData = {
 const getFaqItems = (): FAQItemData[] => [
 	{
 		question: t`Is HireGulf really free?`,
-		answer: t`Yes! HireGulf is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free.`,
+		answer: t`Yes! HireGulf is completely free. Create unlimited resumes, export to PDF, and share online — no subscription or premium tier required.`,
 	},
 	{
 		question: t`How is my data protected?`,
-		answer: t`Your data is stored securely and is never shared with third parties. You can also self-host HireGulf on your own servers for complete control over your data.`,
+		answer: t`Your data is stored securely and is never shared with third parties or used for advertising purposes.`,
 	},
 	{
 		question: t`Can I export my resume to PDF?`,
@@ -28,27 +25,15 @@ const getFaqItems = (): FAQItemData[] => [
 	},
 	{
 		question: t`Is HireGulf available in multiple languages?`,
-		answer: (
-			<Trans>
-				Yes, HireGulf is available in multiple languages. You can choose your preferred language in the settings
-				page, or using the language switcher in the top right corner. If you don't see your language, or you would like
-				to improve the existing translations, you can{" "}
-				<a
-					href={crowdinUrl}
-					target="_blank"
-					rel="noopener"
-					className={buttonVariants({ variant: "link", className: "h-auto px-0!" })}
-				>
-					contribute to the translations on Crowdin
-					<span className="sr-only"> (opens in new tab)</span>
-				</a>
-				.
-			</Trans>
-		),
+		answer: t`Yes! HireGulf supports Arabic, English, and over 50 other languages. You can choose your preferred language in the settings page or using the language switcher in the top right corner.`,
 	},
 	{
 		question: t`What makes HireGulf different from other resume builders?`,
-		answer: t`HireGulf is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall.`,
+		answer: t`HireGulf is built specifically for Gulf professionals. It understands Gulf CV conventions, supports Arabic and English, and offers AI-powered suggestions tailored to the region's job market.`,
+	},
+	{
+		question: t`Does HireGulf support Arabic resumes?`,
+		answer: t`Yes! HireGulf fully supports Arabic with right-to-left (RTL) layouts. You can create resumes entirely in Arabic, entirely in English, or bilingual resumes with both languages.`,
 	},
 	{
 		question: t`Can I customize the templates?`,

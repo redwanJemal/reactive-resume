@@ -22,15 +22,13 @@ export function Prefooter() {
 					transition={{ duration: 0.6 }}
 				>
 					<h2 className="font-bold text-2xl tracking-tight md:text-4xl">
-						<Trans>By the community, for the community.</Trans>
+						<Trans>Built for the Gulf. Trusted worldwide.</Trans>
 					</h2>
 
 					<p className="text-muted-foreground leading-relaxed">
 						<Trans>
-							HireGulf continues to grow thanks to its vibrant community. This project owes its progress to
-							numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders
-							who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it
-							accessible to a broader audience, and the people who've donated to support its continued development.
+							HireGulf helps thousands of professionals across Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman
+							create resumes that stand out. Whether you're an expat or a local, we've got you covered.
 						</Trans>
 					</p>
 				</motion.div>

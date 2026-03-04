@@ -1,7 +1,7 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import type { Icon } from "@phosphor-icons/react";
-import { GithubLogoIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
+import { EnvelopeSimpleIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BrandIcon } from "@/components/ui/brand-icon";
@@ -24,24 +24,22 @@ type SocialLink = {
 	icon: Icon;
 };
 
-const getResourceLinks = (): FooterLinkItem[] => [
-	{ url: "https://docs.rxresu.me", label: t`Documentation` },
-	{ url: "https://opencollective.com/reactive-resume", label: t`Sponsorships` },
-	{ url: "https://github.com/amruthpillai/reactive-resume", label: t`Source Code` },
-	{ url: "https://docs.rxresu.me/changelog", label: t`Changelog` },
+const getProductLinks = (): FooterLinkItem[] => [
+	{ url: "#features", label: t`Features` },
+	{ url: "#templates", label: t`Templates` },
+	{ url: "#frequently-asked-questions", label: t`FAQ` },
 ];
 
-const getCommunityLinks = (): FooterLinkItem[] => [
-	{ url: "https://github.com/amruthpillai/reactive-resume/issues", label: t`Report an issue` },
-	{ url: "https://crowdin.com/project/reactive-resume", label: t`Translations` },
-	{ url: "https://reddit.com/r/reactiveresume", label: t`Subreddit` },
-	{ url: "https://discord.gg/aSyA5ZSxpb", label: t`Discord` },
+const getCompanyLinks = (): FooterLinkItem[] => [
+	{ url: "mailto:hello@hiregulf.com", label: t`Contact Us` },
+	{ url: "/privacy", label: t`Privacy Policy` },
+	{ url: "/terms", label: t`Terms of Service` },
 ];
 
 const socialLinks: SocialLink[] = [
-	{ url: "https://github.com/amruthpillai/reactive-resume", label: "GitHub", icon: GithubLogoIcon },
-	{ url: "https://linkedin.com/in/amruthpillai", label: "LinkedIn", icon: LinkedinLogoIcon },
-	{ url: "https://x.com/KingOKings", label: "X (Twitter)", icon: XLogoIcon },
+	{ url: "https://linkedin.com/company/hiregulf", label: "LinkedIn", icon: LinkedinLogoIcon },
+	{ url: "https://x.com/hiregulf", label: "X (Twitter)", icon: XLogoIcon },
+	{ url: "mailto:hello@hiregulf.com", label: "Email", icon: EnvelopeSimpleIcon },
 ];
 
 export function Footer() {
@@ -62,9 +60,7 @@ export function Footer() {
 					<div className="space-y-2">
 						<h2 className="font-bold text-lg tracking-tight">HireGulf</h2>
 						<p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
-							<Trans>
-								A free AI-powered resume builder designed for expats and professionals in the Gulf region.
-							</Trans>
+							<Trans>A free AI-powered resume builder designed for expats and professionals in the Gulf region.</Trans>
 						</p>
 					</div>
 
@@ -85,11 +81,11 @@ export function Footer() {
 					</div>
 				</div>
 
-				{/* Resources Column */}
-				<FooterLinkGroup title={t`Resources`} links={getResourceLinks()} />
+				{/* Product Column */}
+				<FooterLinkGroup title={t`Product`} links={getProductLinks()} />
 
-				{/* Community Column */}
-				<FooterLinkGroup title={t`Community`} links={getCommunityLinks()} />
+				{/* Company Column */}
+				<FooterLinkGroup title={t`Company`} links={getCompanyLinks()} />
 
 				{/* Copyright Column */}
 				<div className="space-y-4 sm:col-span-2 lg:col-span-1">
@@ -116,17 +112,17 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
 
 function FooterLink({ url, label }: FooterLinkItem) {
 	const [isHovered, setIsHovered] = useState(false);
+	const isExternal = url.startsWith("http") || url.startsWith("mailto:");
 
 	return (
 		<li className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 			<a
 				href={url}
-				target="_blank"
-				rel="noopener"
+				{...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
 				className="relative inline-block text-sm transition-colors hover:text-foreground"
 			>
 				{label}
-				<span className="sr-only"> ({t`opens in new tab`})</span>
+				{isExternal && <span className="sr-only"> ({t`opens in new tab`})</span>}
 
 				<motion.div
 					aria-hidden="true"

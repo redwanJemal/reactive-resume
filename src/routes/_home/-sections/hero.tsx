@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { ArrowRightIcon, BookIcon, SparkleIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, SparkleIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { CometCard } from "@/components/animation/comet-card";
@@ -47,13 +47,11 @@ export function Hero() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.8 }}
-					target="_blank"
-					rel="noopener"
-					href="https://docs.rxresu.me/getting-started"
+					href="#features"
 				>
 					<Badge variant="secondary" className="h-auto gap-1.5 px-3 py-0.5">
 						<SparkleIcon aria-hidden="true" className="size-3.5" weight="fill" />
-						<Trans>What's new in the latest version?</Trans>
+						<Trans>Explore our features</Trans>
 					</Badge>
 				</motion.a>
 
@@ -66,7 +64,7 @@ export function Hero() {
 					<Trans>
 						<p className="font-medium text-muted-foreground tracking-tight md:text-lg">Finally,</p>
 						<h1 className="mt-1 font-bold text-4xl tracking-tight md:text-5xl lg:text-6xl">
-							A free and open-source resume builder
+							A free AI-powered resume builder for the Gulf
 						</h1>
 					</Trans>
 				</motion.div>
@@ -103,12 +101,8 @@ export function Hero() {
 					</Button>
 
 					<Button asChild size="lg" variant="ghost" className="gap-2 px-4">
-						<a href="https://docs.rxresu.me" target="_blank" rel="noopener">
-							<BookIcon aria-hidden="true" className="size-4" />
+						<a href="#features">
 							<Trans>Learn More</Trans>
-							<span className="sr-only">
-								<Trans>(opens in new tab)</Trans>
-							</span>
 						</a>
 					</Button>
 				</motion.div>

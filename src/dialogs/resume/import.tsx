@@ -193,8 +193,8 @@ export function ImportResumeDialog(_: DialogProps<"resume.import">) {
 				</DialogTitle>
 				<DialogDescription>
 					<Trans>
-						Continue where you left off by importing an existing resume you created using HireGulf or any another
-						resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from HireGulf.
+						Continue where you left off by importing an existing resume you created using HireGulf or any another resume
+						builder. Supported formats include PDF, Microsoft Word, as well as JSON files from HireGulf.
 					</Trans>
 				</DialogDescription>
 			</DialogHeader>

@@ -14,12 +14,12 @@ export function InformationSectionBuilder() {
 				<div className="space-y-2 text-xs leading-normal">
 					<Trans>
 						<p>
-							Thank you for using HireGulf! This app is a labor of love, created mostly in my spare time, with
-							wonderful support from open-source contributors around the world.
+							Thank you for using HireGulf! This app is a labor of love, created mostly in my spare time, with wonderful
+							support from open-source contributors around the world.
 						</p>
 						<p>
-							If HireGulf has been helpful to you, and you'd like to help keep it free and open for everyone,
-							please consider making a donation. Every little bit is appreciated!
+							If HireGulf has been helpful to you, and you'd like to help keep it free and open for everyone, please
+							consider making a donation. Every little bit is appreciated!
 						</p>
 					</Trans>
 				</div>
