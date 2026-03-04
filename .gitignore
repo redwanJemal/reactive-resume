@@ -12,6 +12,7 @@ coverage
 .tanstack
 node_modules
 !.env.example
+!.env.coolify
 public/sw.js
 public/sw.js.map
 scripts/**/*.json

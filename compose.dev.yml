@@ -1,4 +1,4 @@
-name: reactive_resume
+name: hiregulf
 
 services:
   adminer:
@@ -86,7 +86,7 @@ services:
           echo 'Waiting for SeaweedFS...';
           sleep 2;
         done;
-        mc mb seaweedfs/reactive-resume --ignore-existing;
+        mc mb seaweedfs/hiregulf --ignore-existing;
       "
     depends_on:
       seaweedfs:

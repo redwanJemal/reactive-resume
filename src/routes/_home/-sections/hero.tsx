@@ -30,7 +30,7 @@ export function Hero() {
 						// @ts-expect-error - typescript doesn't know about fetchPriority for video elements
 						fetchPriority="high"
 						src="/videos/timelapse.mp4"
-						aria-label={t`Timelapse demonstration of building a resume with Reactive Resume`}
+						aria-label={t`Timelapse demonstration of building a resume with HireGulf`}
 						className="pointer-events-none size-full rounded-lg border object-cover"
 					/>
 
@@ -79,8 +79,7 @@ export function Hero() {
 					transition={{ duration: 0.6, delay: 1.2 }}
 				>
 					<Trans>
-						Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating,
-						and sharing your resume.
+						HireGulf is a free AI-powered resume builder designed for expats and professionals in the Gulf region.
 					</Trans>
 				</motion.p>
 

@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---------- Dependencies Layer ----------
-FROM node:24-slim AS dependencies
+FROM node:22-slim AS dependencies
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -19,7 +19,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     cd /tmp/prod && pnpm install --frozen-lockfile --prod
 
 # ---------- Builder Layer ----------
-FROM node:24-slim AS builder
+FROM node:22-slim AS builder
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -33,15 +33,14 @@ COPY . .
 RUN pnpm run build
 
 # ---------- Runtime Layer ----------
-FROM node:24-slim AS runtime
+FROM node:22-slim AS runtime
 
-LABEL maintainer="amruthpillai"
+LABEL maintainer="HireGulf"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.title="Reactive Resume"
-LABEL org.opencontainers.image.description="A free and open-source resume builder."
-LABEL org.opencontainers.image.vendor="Amruth Pillai"
-LABEL org.opencontainers.image.url="https://rxresu.me"
-LABEL org.opencontainers.image.documentation="https://docs.rxresu.me"
+LABEL org.opencontainers.image.title="HireGulf"
+LABEL org.opencontainers.image.description="AI Resume Builder for Gulf Professionals"
+LABEL org.opencontainers.image.vendor="HireGulf"
+LABEL org.opencontainers.image.url="https://resume.endlessmaker.com"
 LABEL org.opencontainers.image.source="https://github.com/amruthpillai/reactive-resume"
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl \

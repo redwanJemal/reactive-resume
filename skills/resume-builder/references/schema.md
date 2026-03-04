@@ -1,4 +1,4 @@
-# Reactive Resume Schema Reference
+# HireGulf Schema Reference
 
 The complete JSON Schema is available at: https://rxresu.me/schema.json
 

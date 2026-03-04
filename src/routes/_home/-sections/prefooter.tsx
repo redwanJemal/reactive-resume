@@ -12,7 +12,7 @@ export function Prefooter() {
 			</div>
 
 			<div className="relative space-y-8">
-				<TextMaskEffect aria-hidden="true" text="Reactive Resume" className="hidden md:block" />
+				<TextMaskEffect aria-hidden="true" text="HireGulf" className="hidden md:block" />
 
 				<motion.div
 					className="mx-auto max-w-3xl space-y-8 px-6 text-center md:px-8 xl:px-0"
@@ -27,7 +27,7 @@ export function Prefooter() {
 
 					<p className="text-muted-foreground leading-relaxed">
 						<Trans>
-							Reactive Resume continues to grow thanks to its vibrant community. This project owes its progress to
+							HireGulf continues to grow thanks to its vibrant community. This project owes its progress to
 							numerous individuals who've dedicated their time and skills to make it better. We celebrate the coders
 							who've enhanced its features on GitHub, the linguists whose translations on Crowdin have made it
 							accessible to a broader audience, and the people who've donated to support its continued development.

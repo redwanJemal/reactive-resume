@@ -34,7 +34,12 @@ const config = defineConfig({
 	plugins: [
 		lingui(),
 		tailwindcss(),
-		nitro({ plugins: ["plugins/1.migrate.ts"] }),
+		nitro({
+			plugins: ["plugins/1.migrate.ts"],
+			rollupConfig: {
+				external: ["tslib"],
+			},
+		}),
 		tanstackStart({ router: { semicolons: true, quoteStyle: "double" } }),
 		viteReact({ babel: { plugins: ["@lingui/babel-plugin-lingui-macro"] } }),
 		VitePWA({
@@ -51,15 +56,15 @@ const config = defineConfig({
 				navigateFallback: null, // Disable navigation fallback for SSR
 			},
 			manifest: {
-				name: "Reactive Resume",
-				short_name: "Reactive Resume",
-				description: "A free and open-source resume builder.",
+				name: "HireGulf",
+				short_name: "HireGulf",
+				description: "A free AI-powered resume builder for Gulf professionals.",
 				id: "/?source=pwa",
 				start_url: "/?source=pwa",
 				display: "standalone",
 				orientation: "portrait",
-				theme_color: "#09090B",
-				background_color: "#09090B",
+				theme_color: "#0C2340",
+				background_color: "#0C2340",
 				icons: [
 					{
 						src: "favicon.ico",

@@ -8,20 +8,20 @@ import { registerTools } from "./-helpers/tools";
 
 function createMcpServer() {
 	const server = new McpServer({
-		name: "reactive-resume",
+		name: "hiregulf",
 		version: "1.0.0",
-		title: "Reactive Resume",
-		websiteUrl: "https://rxresu.me",
+		title: "HireGulf",
+		websiteUrl: "https://rxresu.me", // TODO: Update to HireGulf URL when available
 		description:
-			"Reactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
+			"HireGulf is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
 		icons: [
 			{
-				src: "https://rxresu.me/icon/light.svg",
+				src: "https://rxresu.me/icon/light.svg", // TODO: Update to HireGulf icon URL when available
 				mimeType: "image/svg+xml",
 				theme: "light",
 			},
 			{
-				src: "https://rxresu.me/icon/dark.svg",
+				src: "https://rxresu.me/icon/dark.svg", // TODO: Update to HireGulf icon URL when available
 				mimeType: "image/svg+xml",
 				theme: "dark",
 			},

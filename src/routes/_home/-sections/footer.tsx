@@ -60,11 +60,10 @@ export function Footer() {
 					<BrandIcon variant="logo" className="size-10" />
 
 					<div className="space-y-2">
-						<h2 className="font-bold text-lg tracking-tight">Reactive Resume</h2>
+						<h2 className="font-bold text-lg tracking-tight">HireGulf</h2>
 						<p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
 							<Trans>
-								A free and open-source resume builder that simplifies the process of creating, updating, and sharing
-								your resume.
+								A free AI-powered resume builder designed for expats and professionals in the Gulf region.
 							</Trans>
 						</p>
 					</div>
