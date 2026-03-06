@@ -1,11 +1,10 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { ArrowRightIcon, SparkleIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { CometCard } from "@/components/animation/comet-card";
 import { Spotlight } from "@/components/animation/spotlight";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -42,31 +41,15 @@ export function Hero() {
 			</motion.div>
 
 			<div className="relative z-10 flex max-w-2xl flex-col items-center gap-y-6 px-4 xs:px-0 text-center">
-				{/* Badge */}
-				<motion.a
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6, delay: 0.8 }}
-					href="#features"
-				>
-					<Badge variant="secondary" className="h-auto gap-1.5 px-3 py-0.5">
-						<SparkleIcon aria-hidden="true" className="size-3.5" weight="fill" />
-						<Trans>Explore our features</Trans>
-					</Badge>
-				</motion.a>
-
 				{/* Headline */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 1 }}
 				>
-					<Trans>
-						<p className="font-medium text-muted-foreground tracking-tight md:text-lg">Finally,</p>
-						<h1 className="mt-1 font-bold text-4xl tracking-tight md:text-5xl lg:text-6xl">
-							A free AI-powered resume builder for the Gulf
-						</h1>
-					</Trans>
+					<h1 className="mt-1 font-bold text-4xl tracking-tight md:text-5xl lg:text-6xl">
+						<Trans>Build your Gulf-ready CV in minutes</Trans>
+					</h1>
 				</motion.div>
 
 				{/* Description */}
@@ -77,21 +60,21 @@ export function Hero() {
 					transition={{ duration: 0.6, delay: 1.2 }}
 				>
 					<Trans>
-						HireGulf is a free AI-powered resume builder designed for expats and professionals in the Gulf region.
+						Free AI-powered resume builder with Gulf CV fields, Arabic support, and 14+ professional templates. Designed
+						for expats and professionals in Saudi, UAE, Qatar, Kuwait, Bahrain & Oman.
 					</Trans>
 				</motion.p>
 
-				{/* CTA Buttons */}
+				{/* CTA Button */}
 				<motion.div
-					className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 1.4 }}
 				>
-					<Button asChild size="lg" className="group relative overflow-hidden px-4">
+					<Button asChild size="lg" className="group relative overflow-hidden px-6">
 						<Link to="/dashboard">
 							<span className="relative z-10 flex items-center gap-2">
-								<Trans>Get Started</Trans>
+								<Trans>Get Started — It's Free</Trans>
 								<ArrowRightIcon
 									aria-hidden="true"
 									className="size-4 transition-transform group-hover:translate-x-0.5"
@@ -99,16 +82,10 @@ export function Hero() {
 							</span>
 						</Link>
 					</Button>
-
-					<Button asChild size="lg" variant="ghost" className="gap-2 px-4">
-						<a href="#features">
-							<Trans>Learn More</Trans>
-						</a>
-					</Button>
 				</motion.div>
 			</div>
 
-			{/* Scroll indicator - decorative */}
+			{/* Scroll indicator */}
 			<motion.div
 				aria-hidden="true"
 				role="presentation"

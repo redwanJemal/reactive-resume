@@ -1,4 +1,5 @@
 import { t } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 import { ArrowRightIcon, TranslateIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring } from "motion/react";
@@ -22,10 +23,8 @@ export function Header() {
 			if (!ticking.current) {
 				window.requestAnimationFrame(() => {
 					if (current > 32 && current > lastScroll.current) {
-						// Scrolling down, hide
 						y.set(-100);
 					} else {
-						// Scrolling up, show
 						y.set(0);
 					}
 					lastScroll.current = current;
@@ -53,6 +52,13 @@ export function Header() {
 				</Link>
 
 				<div className="ml-auto flex items-center gap-x-2">
+					<Link
+						to="/blog"
+						className="hidden px-3 py-1.5 font-medium text-muted-foreground text-sm transition-colors hover:text-foreground sm:block"
+					>
+						<Trans>Blog</Trans>
+					</Link>
+
 					<LocaleCombobox
 						buttonProps={{
 							size: "icon",

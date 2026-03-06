@@ -13,35 +13,35 @@ type FAQItemData = {
 const getFaqItems = (): FAQItemData[] => [
 	{
 		question: t`Is HireGulf really free?`,
-		answer: t`Yes! HireGulf is completely free. Create unlimited resumes, export to PDF, and share online — no subscription or premium tier required.`,
-	},
-	{
-		question: t`How is my data protected?`,
-		answer: t`Your data is stored securely and is never shared with third parties or used for advertising purposes.`,
-	},
-	{
-		question: t`Can I export my resume to PDF?`,
-		answer: t`Absolutely! You can export your resume to PDF with a single click. The exported PDF maintains all your formatting and styling perfectly.`,
-	},
-	{
-		question: t`Is HireGulf available in multiple languages?`,
-		answer: t`Yes! HireGulf supports Arabic, English, and over 50 other languages. You can choose your preferred language in the settings page or using the language switcher in the top right corner.`,
+		answer: t`Yes, 100% free. Create unlimited resumes, export to PDF, and share online. No hidden costs, no premium tier, no credit card required.`,
 	},
 	{
 		question: t`What makes HireGulf different from other resume builders?`,
-		answer: t`HireGulf is built specifically for Gulf professionals. It understands Gulf CV conventions, supports Arabic and English, and offers AI-powered suggestions tailored to the region's job market.`,
+		answer: t`HireGulf is built specifically for the Gulf job market. Our templates include fields for nationality, visa status, date of birth, and marital status — details that Gulf employers expect. We support Arabic with full RTL layouts, and our AI is tuned for Gulf CV conventions.`,
 	},
 	{
 		question: t`Does HireGulf support Arabic resumes?`,
-		answer: t`Yes! HireGulf fully supports Arabic with right-to-left (RTL) layouts. You can create resumes entirely in Arabic, entirely in English, or bilingual resumes with both languages.`,
+		answer: t`Yes. HireGulf fully supports Arabic with right-to-left (RTL) layouts. You can create resumes entirely in Arabic, entirely in English, or bilingual resumes with both languages. The interface itself is available in Arabic and 50+ other languages.`,
 	},
 	{
-		question: t`Can I customize the templates?`,
-		answer: t`Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance.`,
+		question: t`Which Gulf countries does HireGulf cover?`,
+		answer: t`HireGulf is designed for all six GCC countries: Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman. Our templates and AI suggestions account for each country's CV norms and employer expectations.`,
 	},
 	{
-		question: t`How do I share my resume?`,
-		answer: t`You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!`,
+		question: t`What Gulf-specific CV fields are included?`,
+		answer: t`Our templates include nationality, visa status, date of birth, marital status, and a professional photo — all standard expectations for Gulf CVs. The Khaleeji template is specifically designed for Gulf applications.`,
+	},
+	{
+		question: t`Can I export my resume to PDF?`,
+		answer: t`Yes. Export to PDF with a single click. The PDF preserves all formatting, fonts, and layout perfectly. You can also share your resume via a unique public URL.`,
+	},
+	{
+		question: t`How does the AI feature work?`,
+		answer: t`Our AI can help you write professional summaries, improve bullet points, and tailor your resume content for Gulf employers. It understands Gulf job market conventions and can suggest region-appropriate language.`,
+	},
+	{
+		question: t`Is my data secure?`,
+		answer: t`Your data is stored securely and never shared with third parties. We don't sell your information or use it for advertising. You can delete your account and all associated data at any time.`,
 	},
 ];
 

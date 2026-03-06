@@ -2,6 +2,7 @@ import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import type { Icon } from "@phosphor-icons/react";
 import { EnvelopeSimpleIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
+import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BrandIcon } from "@/components/ui/brand-icon";
@@ -11,6 +12,7 @@ import { Copyright } from "@/components/ui/copyright";
 type FooterLinkItem = {
 	url: string;
 	label: string;
+	isRoute?: boolean;
 };
 
 type FooterLinkGroupProps = {
@@ -25,9 +27,9 @@ type SocialLink = {
 };
 
 const getProductLinks = (): FooterLinkItem[] => [
-	{ url: "#features", label: t`Features` },
 	{ url: "#templates", label: t`Templates` },
 	{ url: "#frequently-asked-questions", label: t`FAQ` },
+	{ url: "/blog", label: t`Blog`, isRoute: true },
 ];
 
 const getCompanyLinks = (): FooterLinkItem[] => [
@@ -103,35 +105,47 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
 
 			<ul className="space-y-3">
 				{links.map((link) => (
-					<FooterLink key={link.url} url={link.url} label={link.label} />
+					<FooterLink key={link.url} url={link.url} label={link.label} isRoute={link.isRoute} />
 				))}
 			</ul>
 		</div>
 	);
 }
 
-function FooterLink({ url, label }: FooterLinkItem) {
+function FooterLink({ url, label, isRoute }: FooterLinkItem) {
 	const [isHovered, setIsHovered] = useState(false);
 	const isExternal = url.startsWith("http") || url.startsWith("mailto:");
 
 	return (
 		<li className="relative" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-			<a
-				href={url}
-				{...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
-				className="relative inline-block text-sm transition-colors hover:text-foreground"
-			>
-				{label}
-				{isExternal && <span className="sr-only"> ({t`opens in new tab`})</span>}
-
-				<motion.div
-					aria-hidden="true"
-					initial={{ width: 0, opacity: 0 }}
-					animate={isHovered ? { width: "100%", opacity: 1 } : { width: 0, opacity: 0 }}
-					transition={{ duration: 0.25, ease: "easeOut" }}
-					className="pointer-events-none absolute inset-s-0 -bottom-0.5 h-px rounded bg-primary"
-				/>
-			</a>
+			{isRoute ? (
+				<Link to={url} className="relative inline-block text-sm transition-colors hover:text-foreground">
+					{label}
+					<motion.div
+						aria-hidden="true"
+						initial={{ width: 0, opacity: 0 }}
+						animate={isHovered ? { width: "100%", opacity: 1 } : { width: 0, opacity: 0 }}
+						transition={{ duration: 0.25, ease: "easeOut" }}
+						className="pointer-events-none absolute inset-s-0 -bottom-0.5 h-px rounded bg-primary"
+					/>
+				</Link>
+			) : (
+				<a
+					href={url}
+					{...(isExternal ? { target: "_blank", rel: "noopener" } : {})}
+					className="relative inline-block text-sm transition-colors hover:text-foreground"
+				>
+					{label}
+					{isExternal && <span className="sr-only"> ({t`opens in new tab`})</span>}
+					<motion.div
+						aria-hidden="true"
+						initial={{ width: 0, opacity: 0 }}
+						animate={isHovered ? { width: "100%", opacity: 1 } : { width: 0, opacity: 0 }}
+						transition={{ duration: 0.25, ease: "easeOut" }}
+						className="pointer-events-none absolute inset-s-0 -bottom-0.5 h-px rounded bg-primary"
+					/>
+				</a>
+			)}
 		</li>
 	);
 }
