@@ -16,13 +16,13 @@ function createMcpServer() {
 			"NoorCV is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
 		icons: [
 			{
-				src: "https://rxresu.me/icon/light.svg", // TODO: Update to NoorCV icon URL when available
-				mimeType: "image/svg+xml",
+				src: "/icon/light.png",
+				mimeType: "image/png",
 				theme: "light",
 			},
 			{
-				src: "https://rxresu.me/icon/dark.svg", // TODO: Update to NoorCV icon URL when available
-				mimeType: "image/svg+xml",
+				src: "/icon/dark.png",
+				mimeType: "image/png",
 				theme: "dark",
 			},
 		],
