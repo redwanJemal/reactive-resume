@@ -5,18 +5,20 @@ type Props = React.ComponentProps<"img"> & {
 };
 
 export function BrandIcon({ variant = "logo", className, ...props }: Props) {
+	const defaultClass = variant === "logo" ? "h-12 w-auto" : "size-12";
+
 	return (
 		<>
 			<img
 				src={`/${variant}/dark.png`}
 				alt="NoorCV"
-				className={cn("hidden size-12 dark:block", className)}
+				className={cn(`hidden dark:block ${defaultClass}`, className)}
 				{...props}
 			/>
 			<img
 				src={`/${variant}/light.png`}
 				alt="NoorCV"
-				className={cn("block size-12 dark:hidden", className)}
+				className={cn(`block dark:hidden ${defaultClass}`, className)}
 				{...props}
 			/>
 		</>
