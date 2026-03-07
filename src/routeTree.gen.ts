@@ -26,9 +26,13 @@ import { Route as AuthRegisterRouteImport } from './routes/auth/register'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as HomeTermsRouteImport } from './routes/_home/terms'
+import { Route as HomePrivacyRouteImport } from './routes/_home/privacy'
 import { Route as UsernameSlugRouteImport } from './routes/$username/$slug'
 import { Route as BuilderResumeIdRouteRouteImport } from './routes/builder/$resumeId/route'
+import { Route as DashboardUsersIndexRouteImport } from './routes/dashboard/users/index'
 import { Route as DashboardResumesIndexRouteImport } from './routes/dashboard/resumes/index'
+import { Route as DashboardBlogIndexRouteImport } from './routes/dashboard/blog/index'
 import { Route as BuilderResumeIdIndexRouteImport } from './routes/builder/$resumeId/index'
 import { Route as HomeBlogIndexRouteImport } from './routes/_home/blog/index'
 import { Route as UploadsUserIdSplatRouteImport } from './routes/uploads/$userId.$'
@@ -37,6 +41,8 @@ import { Route as DashboardSettingsPreferencesRouteImport } from './routes/dashb
 import { Route as DashboardSettingsDangerZoneRouteImport } from './routes/dashboard/settings/danger-zone'
 import { Route as DashboardSettingsApiKeysRouteImport } from './routes/dashboard/settings/api-keys'
 import { Route as DashboardSettingsAiRouteImport } from './routes/dashboard/settings/ai'
+import { Route as DashboardBlogNewRouteImport } from './routes/dashboard/blog/new'
+import { Route as DashboardBlogIdRouteImport } from './routes/dashboard/blog/$id'
 import { Route as ApiRpcSplatRouteImport } from './routes/api/rpc.$'
 import { Route as ApiOpenapiSplatRouteImport } from './routes/api/openapi.$'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth.$'
@@ -127,6 +133,16 @@ const ApiHealthRoute = ApiHealthRouteImport.update({
   path: '/api/health',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HomeTermsRoute = HomeTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomePrivacyRoute = HomePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const UsernameSlugRoute = UsernameSlugRouteImport.update({
   id: '/$username/$slug',
   path: '/$username/$slug',
@@ -137,9 +153,19 @@ const BuilderResumeIdRouteRoute = BuilderResumeIdRouteRouteImport.update({
   path: '/builder/$resumeId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardUsersIndexRoute = DashboardUsersIndexRouteImport.update({
+  id: '/users/',
+  path: '/users/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardResumesIndexRoute = DashboardResumesIndexRouteImport.update({
   id: '/resumes/',
   path: '/resumes/',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardBlogIndexRoute = DashboardBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const BuilderResumeIdIndexRoute = BuilderResumeIdIndexRouteImport.update({
@@ -186,6 +212,16 @@ const DashboardSettingsAiRoute = DashboardSettingsAiRouteImport.update({
   path: '/settings/ai',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardBlogNewRoute = DashboardBlogNewRouteImport.update({
+  id: '/blog/new',
+  path: '/blog/new',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardBlogIdRoute = DashboardBlogIdRouteImport.update({
+  id: '/blog/$id',
+  path: '/blog/$id',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const ApiRpcSplatRoute = ApiRpcSplatRouteImport.update({
   id: '/api/rpc/$',
   path: '/api/rpc/$',
@@ -220,6 +256,8 @@ export interface FileRoutesByFullPath {
   '/schema.json': typeof SchemaDotjsonRoute
   '/builder/$resumeId': typeof BuilderResumeIdRouteRouteWithChildren
   '/$username/$slug': typeof UsernameSlugRoute
+  '/privacy': typeof HomePrivacyRoute
+  '/terms': typeof HomeTermsRoute
   '/api/health': typeof ApiHealthRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -236,6 +274,8 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/openapi/$': typeof ApiOpenapiSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/dashboard/blog/$id': typeof DashboardBlogIdRoute
+  '/dashboard/blog/new': typeof DashboardBlogNewRoute
   '/dashboard/settings/ai': typeof DashboardSettingsAiRoute
   '/dashboard/settings/api-keys': typeof DashboardSettingsApiKeysRoute
   '/dashboard/settings/danger-zone': typeof DashboardSettingsDangerZoneRoute
@@ -244,12 +284,16 @@ export interface FileRoutesByFullPath {
   '/uploads/$userId/$': typeof UploadsUserIdSplatRoute
   '/blog/': typeof HomeBlogIndexRoute
   '/builder/$resumeId/': typeof BuilderResumeIdIndexRoute
+  '/dashboard/blog/': typeof DashboardBlogIndexRoute
   '/dashboard/resumes/': typeof DashboardResumesIndexRoute
+  '/dashboard/users/': typeof DashboardUsersIndexRoute
   '/dashboard/settings/authentication/': typeof DashboardSettingsAuthenticationIndexRoute
 }
 export interface FileRoutesByTo {
   '/schema.json': typeof SchemaDotjsonRoute
   '/$username/$slug': typeof UsernameSlugRoute
+  '/privacy': typeof HomePrivacyRoute
+  '/terms': typeof HomeTermsRoute
   '/api/health': typeof ApiHealthRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -267,6 +311,8 @@ export interface FileRoutesByTo {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/openapi/$': typeof ApiOpenapiSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/dashboard/blog/$id': typeof DashboardBlogIdRoute
+  '/dashboard/blog/new': typeof DashboardBlogNewRoute
   '/dashboard/settings/ai': typeof DashboardSettingsAiRoute
   '/dashboard/settings/api-keys': typeof DashboardSettingsApiKeysRoute
   '/dashboard/settings/danger-zone': typeof DashboardSettingsDangerZoneRoute
@@ -275,7 +321,9 @@ export interface FileRoutesByTo {
   '/uploads/$userId/$': typeof UploadsUserIdSplatRoute
   '/blog': typeof HomeBlogIndexRoute
   '/builder/$resumeId': typeof BuilderResumeIdIndexRoute
+  '/dashboard/blog': typeof DashboardBlogIndexRoute
   '/dashboard/resumes': typeof DashboardResumesIndexRoute
+  '/dashboard/users': typeof DashboardUsersIndexRoute
   '/dashboard/settings/authentication': typeof DashboardSettingsAuthenticationIndexRoute
 }
 export interface FileRoutesById {
@@ -286,6 +334,8 @@ export interface FileRoutesById {
   '/schema.json': typeof SchemaDotjsonRoute
   '/builder/$resumeId': typeof BuilderResumeIdRouteRouteWithChildren
   '/$username/$slug': typeof UsernameSlugRoute
+  '/_home/privacy': typeof HomePrivacyRoute
+  '/_home/terms': typeof HomeTermsRoute
   '/api/health': typeof ApiHealthRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -303,6 +353,8 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/openapi/$': typeof ApiOpenapiSplatRoute
   '/api/rpc/$': typeof ApiRpcSplatRoute
+  '/dashboard/blog/$id': typeof DashboardBlogIdRoute
+  '/dashboard/blog/new': typeof DashboardBlogNewRoute
   '/dashboard/settings/ai': typeof DashboardSettingsAiRoute
   '/dashboard/settings/api-keys': typeof DashboardSettingsApiKeysRoute
   '/dashboard/settings/danger-zone': typeof DashboardSettingsDangerZoneRoute
@@ -311,7 +363,9 @@ export interface FileRoutesById {
   '/uploads/$userId/$': typeof UploadsUserIdSplatRoute
   '/_home/blog/': typeof HomeBlogIndexRoute
   '/builder/$resumeId/': typeof BuilderResumeIdIndexRoute
+  '/dashboard/blog/': typeof DashboardBlogIndexRoute
   '/dashboard/resumes/': typeof DashboardResumesIndexRoute
+  '/dashboard/users/': typeof DashboardUsersIndexRoute
   '/dashboard/settings/authentication/': typeof DashboardSettingsAuthenticationIndexRoute
 }
 export interface FileRouteTypes {
@@ -323,6 +377,8 @@ export interface FileRouteTypes {
     | '/schema.json'
     | '/builder/$resumeId'
     | '/$username/$slug'
+    | '/privacy'
+    | '/terms'
     | '/api/health'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -339,6 +395,8 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/openapi/$'
     | '/api/rpc/$'
+    | '/dashboard/blog/$id'
+    | '/dashboard/blog/new'
     | '/dashboard/settings/ai'
     | '/dashboard/settings/api-keys'
     | '/dashboard/settings/danger-zone'
@@ -347,12 +405,16 @@ export interface FileRouteTypes {
     | '/uploads/$userId/$'
     | '/blog/'
     | '/builder/$resumeId/'
+    | '/dashboard/blog/'
     | '/dashboard/resumes/'
+    | '/dashboard/users/'
     | '/dashboard/settings/authentication/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/schema.json'
     | '/$username/$slug'
+    | '/privacy'
+    | '/terms'
     | '/api/health'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -370,6 +432,8 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/openapi/$'
     | '/api/rpc/$'
+    | '/dashboard/blog/$id'
+    | '/dashboard/blog/new'
     | '/dashboard/settings/ai'
     | '/dashboard/settings/api-keys'
     | '/dashboard/settings/danger-zone'
@@ -378,7 +442,9 @@ export interface FileRouteTypes {
     | '/uploads/$userId/$'
     | '/blog'
     | '/builder/$resumeId'
+    | '/dashboard/blog'
     | '/dashboard/resumes'
+    | '/dashboard/users'
     | '/dashboard/settings/authentication'
   id:
     | '__root__'
@@ -388,6 +454,8 @@ export interface FileRouteTypes {
     | '/schema.json'
     | '/builder/$resumeId'
     | '/$username/$slug'
+    | '/_home/privacy'
+    | '/_home/terms'
     | '/api/health'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -405,6 +473,8 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/openapi/$'
     | '/api/rpc/$'
+    | '/dashboard/blog/$id'
+    | '/dashboard/blog/new'
     | '/dashboard/settings/ai'
     | '/dashboard/settings/api-keys'
     | '/dashboard/settings/danger-zone'
@@ -413,7 +483,9 @@ export interface FileRouteTypes {
     | '/uploads/$userId/$'
     | '/_home/blog/'
     | '/builder/$resumeId/'
+    | '/dashboard/blog/'
     | '/dashboard/resumes/'
+    | '/dashboard/users/'
     | '/dashboard/settings/authentication/'
   fileRoutesById: FileRoutesById
 }
@@ -554,6 +626,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_home/terms': {
+      id: '/_home/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof HomeTermsRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/_home/privacy': {
+      id: '/_home/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof HomePrivacyRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
     '/$username/$slug': {
       id: '/$username/$slug'
       path: '/$username/$slug'
@@ -568,11 +654,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuilderResumeIdRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/users/': {
+      id: '/dashboard/users/'
+      path: '/users'
+      fullPath: '/dashboard/users/'
+      preLoaderRoute: typeof DashboardUsersIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/resumes/': {
       id: '/dashboard/resumes/'
       path: '/resumes'
       fullPath: '/dashboard/resumes/'
       preLoaderRoute: typeof DashboardResumesIndexRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/blog/': {
+      id: '/dashboard/blog/'
+      path: '/blog'
+      fullPath: '/dashboard/blog/'
+      preLoaderRoute: typeof DashboardBlogIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
     '/builder/$resumeId/': {
@@ -631,6 +731,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSettingsAiRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/blog/new': {
+      id: '/dashboard/blog/new'
+      path: '/blog/new'
+      fullPath: '/dashboard/blog/new'
+      preLoaderRoute: typeof DashboardBlogNewRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/blog/$id': {
+      id: '/dashboard/blog/$id'
+      path: '/blog/$id'
+      fullPath: '/dashboard/blog/$id'
+      preLoaderRoute: typeof DashboardBlogIdRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/api/rpc/$': {
       id: '/api/rpc/$'
       path: '/api/rpc/$'
@@ -670,12 +784,16 @@ declare module '@tanstack/react-router' {
 }
 
 interface HomeRouteRouteChildren {
+  HomePrivacyRoute: typeof HomePrivacyRoute
+  HomeTermsRoute: typeof HomeTermsRoute
   HomeIndexRoute: typeof HomeIndexRoute
   HomeBlogSlugRoute: typeof HomeBlogSlugRoute
   HomeBlogIndexRoute: typeof HomeBlogIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
+  HomePrivacyRoute: HomePrivacyRoute,
+  HomeTermsRoute: HomeTermsRoute,
   HomeIndexRoute: HomeIndexRoute,
   HomeBlogSlugRoute: HomeBlogSlugRoute,
   HomeBlogIndexRoute: HomeBlogIndexRoute,
@@ -713,23 +831,31 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 interface DashboardRouteRouteChildren {
   DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardBlogIdRoute: typeof DashboardBlogIdRoute
+  DashboardBlogNewRoute: typeof DashboardBlogNewRoute
   DashboardSettingsAiRoute: typeof DashboardSettingsAiRoute
   DashboardSettingsApiKeysRoute: typeof DashboardSettingsApiKeysRoute
   DashboardSettingsDangerZoneRoute: typeof DashboardSettingsDangerZoneRoute
   DashboardSettingsPreferencesRoute: typeof DashboardSettingsPreferencesRoute
   DashboardSettingsProfileRoute: typeof DashboardSettingsProfileRoute
+  DashboardBlogIndexRoute: typeof DashboardBlogIndexRoute
   DashboardResumesIndexRoute: typeof DashboardResumesIndexRoute
+  DashboardUsersIndexRoute: typeof DashboardUsersIndexRoute
   DashboardSettingsAuthenticationIndexRoute: typeof DashboardSettingsAuthenticationIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardIndexRoute: DashboardIndexRoute,
+  DashboardBlogIdRoute: DashboardBlogIdRoute,
+  DashboardBlogNewRoute: DashboardBlogNewRoute,
   DashboardSettingsAiRoute: DashboardSettingsAiRoute,
   DashboardSettingsApiKeysRoute: DashboardSettingsApiKeysRoute,
   DashboardSettingsDangerZoneRoute: DashboardSettingsDangerZoneRoute,
   DashboardSettingsPreferencesRoute: DashboardSettingsPreferencesRoute,
   DashboardSettingsProfileRoute: DashboardSettingsProfileRoute,
+  DashboardBlogIndexRoute: DashboardBlogIndexRoute,
   DashboardResumesIndexRoute: DashboardResumesIndexRoute,
+  DashboardUsersIndexRoute: DashboardUsersIndexRoute,
   DashboardSettingsAuthenticationIndexRoute:
     DashboardSettingsAuthenticationIndexRoute,
 }

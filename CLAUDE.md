@@ -1,4 +1,4 @@
-# HireGulf
+# NoorCV
 
 > A free, ad-supported AI resume builder targeting expats and professionals in the Gulf (Saudi, UAE, Qatar, Kuwait, Bahrain, Oman). Forked from [Reactive Resume](https://github.com/AmruthPillai/Reactive-Resume) v5.0.10.
 
@@ -77,7 +77,7 @@ Copy `.env.example` to `.env`. Key vars:
 - **Linting**: Biome (not ESLint/Prettier)
 - **Package manager**: pnpm (v10)
 
-## HireGulf-Specific
+## NoorCV-Specific
 
 - **Brand colors**: Navy (`#0C2340`) + Gold (`#C8A951`) — Gulf-inspired palette
 - **Target audience**: Gulf expats (Saudi, UAE, Qatar, Kuwait, Bahrain, Oman)

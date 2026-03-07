@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
 <p>The Gulf Cooperation Council (GCC) countries — Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, and Oman — continue to attract professionals from around the world. With Vision 2030 driving transformation in Saudi Arabia and massive infrastructure projects across the region, opportunities are abundant. Here's how to position yourself for success.</p>
 
 <h2>1. Tailor Your CV to Gulf Standards</h2>
-<p>Gulf employers expect specific details that Western CVs often omit. Include your nationality, visa status, date of birth, and marital status. A professional photo is standard practice. HireGulf's templates include all these fields by default.</p>
+<p>Gulf employers expect specific details that Western CVs often omit. Include your nationality, visa status, date of birth, and marital status. A professional photo is standard practice. NoorCV's templates include all these fields by default.</p>
 
 <h2>2. Research Salary Expectations</h2>
 <p>Salaries in the Gulf are typically tax-free, but cost of living varies dramatically between cities. Dubai and Doha tend to be more expensive than Riyadh or Muscat. Research salary ranges on platforms like GulfTalent, Bayt, and LinkedIn before negotiations.</p>
@@ -88,7 +88,7 @@ export const blogPosts: BlogPost[] = [
 <p>While Western CVs often aim for 1-2 pages, Gulf employers are more accepting of 2-3 page CVs, especially for senior roles. They want comprehensive detail about your experience and qualifications.</p>
 
 <h2>Language</h2>
-<p>English is the primary business language across the Gulf, but having an Arabic version of your CV can be a significant advantage, especially for government and public sector roles. HireGulf supports bilingual CV creation in Arabic and English.</p>
+<p>English is the primary business language across the Gulf, but having an Arabic version of your CV can be a significant advantage, especially for government and public sector roles. NoorCV supports bilingual CV creation in Arabic and English.</p>
 
 <h2>References</h2>
 <p>Gulf employers often want references listed directly on the CV, not just "available upon request." Include 2-3 professional references with their contact details.</p>
@@ -334,7 +334,7 @@ export const blogPosts: BlogPost[] = [
 <li>Leaving out certifications — they matter more in the Gulf than in many Western markets</li>
 </ul>
 
-<p>HireGulf's templates are pre-built with Gulf conventions in mind, including dedicated fields for nationality, visa status, and other region-specific details. Try our Khaleeji template for a design that's specifically optimized for Gulf applications.</p>
+<p>NoorCV's templates are pre-built with Gulf conventions in mind, including dedicated fields for nationality, visa status, and other region-specific details. Try our Khaleeji template for a design that's specifically optimized for Gulf applications.</p>
 `,
 	},
 ];

@@ -37,7 +37,7 @@ const getTransport = () => {
 export const sendEmail = async (options: SendEmailOptions) => {
 	const transport = getTransport();
 
-	const from = options.from ?? env.SMTP_FROM ?? "HireGulf <noreply@localhost>";
+	const from = options.from ?? env.SMTP_FROM ?? "NoorCV <noreply@localhost>";
 	const payload: nodemailer.SendMailOptions = {
 		to: options.to,
 		from,

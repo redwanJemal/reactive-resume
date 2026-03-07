@@ -3,20 +3,34 @@ import { ClockIcon } from "@phosphor-icons/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { type BlogCategory, blogPosts, categoryLabels } from "@/content/blog";
+import { getORPCClient, type RouterOutput } from "@/integrations/orpc/client";
 import { cn } from "@/utils/style";
 import { Footer } from "../-sections/footer";
 
+type BlogCategory = "gulf-job-tips" | "resume-writing" | "visa-work-permits" | "interview-prep";
+type PublishedPost = RouterOutput["blog"]["listPublished"][number];
+
+const categoryLabels: Record<BlogCategory, string> = {
+	"gulf-job-tips": "Gulf Job Tips",
+	"resume-writing": "Resume Writing",
+	"visa-work-permits": "Visa & Work Permits",
+	"interview-prep": "Interview Prep",
+};
+
 export const Route = createFileRoute("/_home/blog/")({
 	component: BlogIndex,
+	loader: async () => {
+		const client = getORPCClient();
+		const posts = await client.blog.listPublished({});
+		return { posts };
+	},
 });
 
 function BlogIndex() {
+	const { posts } = Route.useLoaderData();
 	const [activeCategory, setActiveCategory] = useState<BlogCategory | "all">("all");
 
-	const filtered = activeCategory === "all" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
-
-	const sorted = [...filtered].sort((a, b) => b.date.localeCompare(a.date));
+	const filtered = activeCategory === "all" ? posts : posts.filter((p: PublishedPost) => p.category === activeCategory);
 
 	return (
 		<main className="pt-20">
@@ -73,7 +87,7 @@ function BlogIndex() {
 
 				{/* Posts grid */}
 				<div className="grid gap-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
-					{sorted.map((post, index) => (
+					{filtered.map((post, index) => (
 						<motion.div
 							key={post.slug}
 							initial={{ opacity: 0, y: 20 }}
@@ -96,8 +110,8 @@ function BlogIndex() {
 								<p className="mb-4 line-clamp-3 flex-1 text-muted-foreground text-sm leading-relaxed">{post.excerpt}</p>
 
 								<div className="flex items-center gap-3 text-muted-foreground text-xs">
-									<time dateTime={post.date}>
-										{new Date(post.date).toLocaleDateString("en-US", {
+									<time dateTime={new Date(post.createdAt).toISOString()}>
+										{new Date(post.createdAt).toLocaleDateString("en-US", {
 											month: "short",
 											day: "numeric",
 											year: "numeric",
@@ -112,6 +126,12 @@ function BlogIndex() {
 						</motion.div>
 					))}
 				</div>
+
+				{filtered.length === 0 && (
+					<div className="pb-16 text-center text-muted-foreground">
+						<Trans>No posts found.</Trans>
+					</div>
+				)}
 
 				<Footer />
 			</div>

@@ -8,20 +8,20 @@ import { registerTools } from "./-helpers/tools";
 
 function createMcpServer() {
 	const server = new McpServer({
-		name: "hiregulf",
+		name: "noorcv",
 		version: "1.0.0",
-		title: "HireGulf",
-		websiteUrl: "https://rxresu.me", // TODO: Update to HireGulf URL when available
+		title: "NoorCV",
+		websiteUrl: "https://rxresu.me", // TODO: Update to NoorCV URL when available
 		description:
-			"HireGulf is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
+			"NoorCV is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
 		icons: [
 			{
-				src: "https://rxresu.me/icon/light.svg", // TODO: Update to HireGulf icon URL when available
+				src: "https://rxresu.me/icon/light.svg", // TODO: Update to NoorCV icon URL when available
 				mimeType: "image/svg+xml",
 				theme: "light",
 			},
 			{
-				src: "https://rxresu.me/icon/dark.svg", // TODO: Update to HireGulf icon URL when available
+				src: "https://rxresu.me/icon/dark.svg", // TODO: Update to NoorCV icon URL when available
 				mimeType: "image/svg+xml",
 				theme: "dark",
 			},

@@ -40,14 +40,14 @@ async function handler({ request }: { request: Request }) {
 	if (request.method === "GET" && request.url.endsWith("/spec.json")) {
 		const spec = await openAPIGenerator.generate(router, {
 			info: {
-				title: "HireGulf",
+				title: "NoorCV",
 				version: __APP_VERSION__,
-				description: "HireGulf API",
+				description: "NoorCV API",
 				license: { name: "MIT", url: "https://github.com/amruthpillai/reactive-resume/blob/main/LICENSE" },
 				contact: { name: "Amruth Pillai", email: "hello@amruthpillai.com", url: "https://amruthpillai.com" },
 			},
 			servers: [{ url: `${env.APP_URL}/api/openapi` }],
-			externalDocs: { url: "https://docs.rxresu.me", description: "HireGulf Documentation" },
+			externalDocs: { url: "https://docs.rxresu.me", description: "NoorCV Documentation" },
 			commonSchemas: {
 				ResumeData: { schema: resumeDataSchema },
 			},

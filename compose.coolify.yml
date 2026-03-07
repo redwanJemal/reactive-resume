@@ -1,18 +1,18 @@
-# HireGulf Coolify Deployment
-# Uses Traefik dynamic file config for routing (see traefik-hiregulf.yaml)
+# NoorCV Coolify Deployment
+# Uses Traefik dynamic file config for routing (see traefik-noorcv.yaml)
 
 services:
   app:
     build: .
-    container_name: hiregulf-app
+    container_name: noorcv-app
     restart: always
     environment:
       - TZ=${TZ:-Etc/UTC}
       - NODE_ENV=production
       - APP_URL=${APP_URL:-https://resume.endlessmaker.com}
-      - PRINTER_APP_URL=${PRINTER_APP_URL:-http://hiregulf-app:3000}
-      - PRINTER_ENDPOINT=ws://hiregulf-browserless:3000?token=${BROWSERLESS_TOKEN:-1234567890}
-      - DATABASE_URL=postgresql://${POSTGRES_USER:-hiregulf}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@hiregulf-postgres:5432/${POSTGRES_DB:-hiregulf}
+      - PRINTER_APP_URL=${PRINTER_APP_URL:-http://noorcv-app:3000}
+      - PRINTER_ENDPOINT=ws://noorcv-browserless:3000?token=${BROWSERLESS_TOKEN:-1234567890}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-noorcv}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}@noorcv-postgres:5432/${POSTGRES_DB:-noorcv}
       - AUTH_SECRET=${AUTH_SECRET:?Set AUTH_SECRET}
       # Social Auth (optional)
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
@@ -24,16 +24,18 @@ services:
       - SMTP_PORT=${SMTP_PORT:-587}
       - SMTP_USER=${SMTP_USER:-}
       - SMTP_PASS=${SMTP_PASS:-}
-      - SMTP_FROM=${SMTP_FROM:-HireGulf <noreply@hiregulf.com>}
+      - SMTP_FROM=${SMTP_FROM:-NoorCV <noreply@noorcv.com>}
       - SMTP_SECURE=${SMTP_SECURE:-true}
+      # Admin
+      - ADMIN_EMAILS=${ADMIN_EMAILS:-}
       # Feature Flags
       - FLAG_DISABLE_SIGNUPS=${FLAG_DISABLE_SIGNUPS:-false}
       - FLAG_DISABLE_EMAIL_AUTH=${FLAG_DISABLE_EMAIL_AUTH:-false}
       - FLAG_DISABLE_IMAGE_PROCESSING=${FLAG_DISABLE_IMAGE_PROCESSING:-false}
     volumes:
-      - hiregulf_app_data:/app/data
+      - noorcv_app_data:/app/data
     labels:
-      # Routing handled by Traefik dynamic file config (/traefik/dynamic/hiregulf.yaml)
+      # Routing handled by Traefik dynamic file config (/traefik/dynamic/noorcv.yaml)
       - traefik.enable=false
     depends_on:
       postgres:
@@ -47,32 +49,32 @@ services:
       timeout: 10s
       retries: 3
     networks:
-      - hiregulf-internal
+      - noorcv-internal
       - coolify
 
   postgres:
     image: postgres:16-alpine
-    container_name: hiregulf-postgres
+    container_name: noorcv-postgres
     restart: always
     environment:
-      - POSTGRES_DB=${POSTGRES_DB:-hiregulf}
-      - POSTGRES_USER=${POSTGRES_USER:-hiregulf}
+      - POSTGRES_DB=${POSTGRES_DB:-noorcv}
+      - POSTGRES_USER=${POSTGRES_USER:-noorcv}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
     volumes:
-      - hiregulf_postgres_data:/var/lib/postgresql/data
+      - noorcv_postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-hiregulf} -d ${POSTGRES_DB:-hiregulf}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-noorcv} -d ${POSTGRES_DB:-noorcv}"]
       start_period: 10s
       interval: 30s
       timeout: 10s
       retries: 3
     networks:
-      - hiregulf-internal
+      - noorcv-internal
       - coolify
 
   browserless:
     image: ghcr.io/browserless/chromium:latest
-    container_name: hiregulf-browserless
+    container_name: noorcv-browserless
     restart: always
     environment:
       - QUEUED=10
@@ -85,15 +87,15 @@ services:
       timeout: 5s
       retries: 10
     networks:
-      - hiregulf-internal
+      - noorcv-internal
       - coolify
 
 networks:
-  hiregulf-internal:
+  noorcv-internal:
     driver: bridge
   coolify:
     external: true
 
 volumes:
-  hiregulf_app_data:
-  hiregulf_postgres_data:
+  noorcv_app_data:
+  noorcv_postgres_data:

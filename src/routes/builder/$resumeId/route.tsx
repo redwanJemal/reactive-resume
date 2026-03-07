@@ -33,7 +33,7 @@ export const Route = createFileRoute("/builder/$resumeId")({
 		return { layout, name: resume.name };
 	},
 	head: ({ loaderData }) => ({
-		meta: loaderData ? [{ title: `${loaderData.name} - HireGulf` }] : undefined,
+		meta: loaderData ? [{ title: `${loaderData.name} - NoorCV` }] : undefined,
 	}),
 });
 

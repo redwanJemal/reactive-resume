@@ -217,6 +217,37 @@ export const resumeStatistics = pg.pgTable("resume_statistics", {
 		.$onUpdate(() => /* @__PURE__ */ new Date()),
 });
 
+export const blogPost = pg.pgTable(
+	"blog_post",
+	{
+		id: pg
+			.uuid("id")
+			.notNull()
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		slug: pg.text("slug").notNull().unique(),
+		title: pg.text("title").notNull(),
+		excerpt: pg.text("excerpt").notNull(),
+		category: pg.text("category").notNull(),
+		categoryLabel: pg.text("category_label").notNull(),
+		coverImage: pg.text("cover_image"),
+		content: pg.text("content").notNull(),
+		readTime: pg.integer("read_time").notNull().default(5),
+		isPublished: pg.boolean("is_published").notNull().default(false),
+		authorId: pg
+			.uuid("author_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+		updatedAt: pg
+			.timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => /* @__PURE__ */ new Date()),
+	},
+	(t) => [pg.index().on(t.slug), pg.index().on(t.isPublished), pg.index().on(t.createdAt.desc())],
+);
+
 export const apikey = pg.pgTable(
 	"apikey",
 	{

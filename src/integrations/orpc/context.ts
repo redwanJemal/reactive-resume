@@ -64,6 +64,14 @@ export const protectedProcedure = publicProcedure.use(async ({ context, next }) 
 	});
 });
 
+export const adminProcedure = protectedProcedure.use(async ({ context, next }) => {
+	if (!env.ADMIN_EMAILS.includes(context.user.email)) {
+		throw new ORPCError("FORBIDDEN", { message: "Admin access required" });
+	}
+
+	return next({ context });
+});
+
 /**
  * Server-only procedure that can only be called from server-side code (e.g., loaders).
  * Rejects requests from the browser with a 401 UNAUTHORIZED error.

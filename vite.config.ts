@@ -56,8 +56,8 @@ const config = defineConfig({
 				navigateFallback: null, // Disable navigation fallback for SSR
 			},
 			manifest: {
-				name: "HireGulf",
-				short_name: "HireGulf",
+				name: "NoorCV",
+				short_name: "NoorCV",
 				description: "A free AI-powered resume builder for Gulf professionals.",
 				id: "/?source=pwa",
 				start_url: "/?source=pwa",

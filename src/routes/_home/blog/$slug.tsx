@@ -2,15 +2,18 @@ import { Trans } from "@lingui/react/macro";
 import { ArrowLeftIcon, ClockIcon } from "@phosphor-icons/react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { getBlogPost } from "@/content/blog";
+import { getORPCClient } from "@/integrations/orpc/client";
 import { Footer } from "../-sections/footer";
 
 export const Route = createFileRoute("/_home/blog/$slug")({
 	component: BlogPost,
-	loader: ({ params }) => {
-		const post = getBlogPost(params.slug);
-		if (!post) throw notFound();
-		return post;
+	loader: async ({ params }) => {
+		try {
+			const client = getORPCClient();
+			return await client.blog.getBySlug({ slug: params.slug });
+		} catch {
+			throw notFound();
+		}
 	},
 });
 
@@ -34,8 +37,8 @@ function BlogPost() {
 							<span className="rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs">
 								{post.categoryLabel}
 							</span>
-							<time dateTime={post.date} className="text-muted-foreground text-sm">
-								{new Date(post.date).toLocaleDateString("en-US", {
+							<time dateTime={new Date(post.createdAt).toISOString()} className="text-muted-foreground text-sm">
+								{new Date(post.createdAt).toLocaleDateString("en-US", {
 									month: "long",
 									day: "numeric",
 									year: "numeric",

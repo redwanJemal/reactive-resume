@@ -63,6 +63,18 @@ export const env = createEnv({
 		// Set to "false" for virtual-hosted-style URLs (bucket.endpoint), common with AWS S3, Cloudflare R2, etc.
 		S3_FORCE_PATH_STYLE: z.stringbool().default(false),
 
+		// Admin
+		ADMIN_EMAILS: z
+			.string()
+			.optional()
+			.default("")
+			.transform((value) =>
+				value
+					.split(",")
+					.map((e) => e.trim())
+					.filter(Boolean),
+			),
+
 		// Feature Flags
 		FLAG_DEBUG_PRINTER: z.stringbool().default(false),
 		FLAG_DISABLE_SIGNUPS: z.stringbool().default(false),

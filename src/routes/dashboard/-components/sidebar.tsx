@@ -3,12 +3,14 @@ import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import {
+	ArticleIcon,
 	BrainIcon,
 	GearSixIcon,
 	KeyIcon,
 	ReadCvLogoIcon,
 	ShieldCheckIcon,
 	UserCircleIcon,
+	UsersIcon,
 	WarningIcon,
 } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
@@ -32,6 +34,7 @@ import {
 	useSidebarState,
 } from "@/components/ui/sidebar";
 import { UserDropdownMenu } from "@/components/user/dropdown-menu";
+import { useIsAdmin } from "@/hooks/use-is-admin";
 import { getInitials } from "@/utils/string";
 
 type SidebarItem = {
@@ -106,8 +109,22 @@ function SidebarItemList({ items }: SidebarItemListProps) {
 	);
 }
 
+const adminSidebarItems = [
+	{
+		icon: <ArticleIcon />,
+		label: msg`Blog`,
+		href: "/dashboard/blog",
+	},
+	{
+		icon: <UsersIcon />,
+		label: msg`Users`,
+		href: "/dashboard/users",
+	},
+] as const satisfies SidebarItem[];
+
 export function DashboardSidebar() {
 	const { state } = useSidebarState();
+	const { isAdmin } = useIsAdmin();
 
 	return (
 		<Sidebar variant="floating" collapsible="icon">
@@ -117,7 +134,7 @@ export function DashboardSidebar() {
 						<SidebarMenuButton asChild className="h-auto justify-center">
 							<Link to="/">
 								<BrandIcon variant="icon" className="size-6" />
-								<h1 className="sr-only">HireGulf</h1>
+								<h1 className="sr-only">NoorCV</h1>
 							</Link>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
@@ -135,6 +152,17 @@ export function DashboardSidebar() {
 						<SidebarItemList items={appSidebarItems} />
 					</SidebarGroupContent>
 				</SidebarGroup>
+
+				{isAdmin && (
+					<SidebarGroup>
+						<SidebarGroupLabel>
+							<Trans>Admin</Trans>
+						</SidebarGroupLabel>
+						<SidebarGroupContent>
+							<SidebarItemList items={adminSidebarItems} />
+						</SidebarGroupContent>
+					</SidebarGroup>
+				)}
 
 				<SidebarGroup>
 					<SidebarGroupLabel>

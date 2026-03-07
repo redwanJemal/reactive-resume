@@ -1,4 +1,4 @@
-name: hiregulf
+name: noorcv
 
 services:
   adminer:
@@ -86,7 +86,7 @@ services:
           echo 'Waiting for SeaweedFS...';
           sleep 2;
         done;
-        mc mb seaweedfs/hiregulf --ignore-existing;
+        mc mb seaweedfs/noorcv --ignore-existing;
       "
     depends_on:
       seaweedfs:

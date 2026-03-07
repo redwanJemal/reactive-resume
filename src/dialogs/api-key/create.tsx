@@ -74,7 +74,7 @@ const CreateApiKeyForm = ({ setApiKey }: CreateApiKeyFormProps) => {
 				</DialogTitle>
 				<DialogDescription>
 					<Trans>
-						This will generate a new API key to access the HireGulf API to allow machines to interact with your resume
+						This will generate a new API key to access the NoorCV API to allow machines to interact with your resume
 						data.
 					</Trans>
 				</DialogDescription>

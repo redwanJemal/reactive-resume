@@ -9,13 +9,13 @@ export function BrandIcon({ variant = "logo", className, ...props }: Props) {
 		<>
 			<img
 				src={`/${variant}/dark.svg`}
-				alt="HireGulf"
+				alt="NoorCV"
 				className={cn("hidden size-12 dark:block", className)}
 				{...props}
 			/>
 			<img
 				src={`/${variant}/light.svg`}
-				alt="HireGulf"
+				alt="NoorCV"
 				className={cn("block size-12 dark:hidden", className)}
 				{...props}
 			/>

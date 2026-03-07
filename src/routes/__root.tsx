@@ -31,11 +31,11 @@ type RouterContext = {
 	flags: FeatureFlags;
 };
 
-const appName = "HireGulf";
+const appName = "NoorCV";
 const tagline = "AI Resume Builder for Gulf Professionals";
 const title = `${appName} — ${tagline}`;
 const description =
-	"HireGulf is a free AI-powered resume builder designed for expats and professionals in the Gulf region.";
+	"NoorCV is a free AI-powered resume builder designed for expats and professionals in the Gulf region.";
 
 await loadLocale(await getLocale());
 

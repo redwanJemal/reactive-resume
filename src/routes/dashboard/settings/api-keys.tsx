@@ -79,7 +79,7 @@ function RouteComponent() {
 
 						<p className="text-muted-foreground leading-relaxed">
 							<Trans>
-								Explore the API documentation to learn how to integrate HireGulf with your applications. Find detailed
+								Explore the API documentation to learn how to integrate NoorCV with your applications. Find detailed
 								endpoints, request examples, and authentication methods.
 							</Trans>
 						</p>

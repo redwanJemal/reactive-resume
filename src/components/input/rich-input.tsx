@@ -9,6 +9,7 @@ import {
 	ColumnsPlusLeftIcon,
 	ColumnsPlusRightIcon,
 	HighlighterCircleIcon,
+	ImageIcon,
 	KeyReturnIcon,
 	LinkBreakIcon,
 	LinkIcon,
@@ -39,6 +40,7 @@ import {
 	TrashSimpleIcon,
 } from "@phosphor-icons/react";
 import Highlight from "@tiptap/extension-highlight";
+import Image from "@tiptap/extension-image";
 import { TableKit } from "@tiptap/extension-table";
 import TextAlign from "@tiptap/extension-text-align";
 import {
@@ -94,6 +96,7 @@ const extensions = [
 	}),
 	TextAlign.configure({ types: ["heading", "paragraph", "listItem"] }),
 	TableKit.configure(),
+	Image.configure({ inline: false, allowBase64: false }),
 ];
 
 type Props = UseEditorOptions & {
@@ -351,6 +354,22 @@ function EditorToolbar({ editor, isFullscreen }: { editor: Editor; isFullscreen:
 
 				// Horizontal Rule
 				setHorizontalRule: () => ctx.editor.chain().focus().setHorizontalRule().run(),
+
+				// Image
+				setImage: async () => {
+					const url = await prompt(t`Enter the image URL:`, {
+						defaultValue: "https://",
+					});
+
+					if (!url || url.trim() === "") return;
+
+					if (!z.url({ protocol: /^https?$/ }).safeParse(url).success) {
+						toast.error(t`The URL you entered is not valid.`);
+						return;
+					}
+
+					ctx.editor.chain().focus().setImage({ src: url }).run();
+				},
 			};
 		},
 	});
@@ -703,6 +722,17 @@ function EditorToolbar({ editor, isFullscreen }: { editor: Editor; isFullscreen:
 				onClick={state.setHorizontalRule}
 			>
 				<MinusIcon className="size-3.5" />
+			</Button>
+
+			<Button
+				size={isFullscreen ? "lg" : "sm"}
+				tabIndex={-1}
+				variant="ghost"
+				className="rounded-none"
+				title={t`Image`}
+				onClick={state.setImage}
+			>
+				<ImageIcon className="size-3.5" />
 			</Button>
 		</div>
 	);

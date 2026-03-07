@@ -1,11 +1,11 @@
 ---
 name: resume-builder
-description: Generate professional resumes that conform to the HireGulf schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sections, or content. This skill guides the agent to ask clarifying questions, avoid hallucination, and produce valid JSON output for HireGulf.
+description: Generate professional resumes that conform to the NoorCV schema. Use when the user wants to create, build, or generate a resume through conversational AI, or asks about resume structure, sections, or content. This skill guides the agent to ask clarifying questions, avoid hallucination, and produce valid JSON output for NoorCV.
 ---
 
-# Resume Builder for HireGulf
+# Resume Builder for NoorCV
 
-Build professional resumes through conversational AI for HireGulf, a free and open-source resume builder.
+Build professional resumes through conversational AI for NoorCV, a free and open-source resume builder.
 
 ## Core Principles
 
@@ -51,7 +51,7 @@ Ask about preferences:
 
 ### Step 4: Generate Valid JSON
 
-Output must conform to the HireGulf schema. See [references/schema.md](references/schema.md) for the complete schema structure.
+Output must conform to the NoorCV schema. See [references/schema.md](references/schema.md) for the complete schema structure.
 
 Key requirements:
 - All item `id` fields must be valid UUIDs
@@ -99,7 +99,7 @@ For students/recent graduates:
 
 ## Output Format
 
-When generating the resume, output a complete JSON object that conforms to the HireGulf schema. The user can then import this JSON directly into HireGulf.
+When generating the resume, output a complete JSON object that conforms to the NoorCV schema. The user can then import this JSON directly into NoorCV.
 
 Example minimal structure:
 

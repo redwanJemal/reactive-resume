@@ -35,13 +35,13 @@ RUN pnpm run build
 # ---------- Runtime Layer ----------
 FROM node:22-slim AS runtime
 
-LABEL maintainer="HireGulf"
+LABEL maintainer="NoorCV"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.title="HireGulf"
+LABEL org.opencontainers.image.title="NoorCV"
 LABEL org.opencontainers.image.description="AI Resume Builder for Gulf Professionals"
-LABEL org.opencontainers.image.vendor="HireGulf"
-LABEL org.opencontainers.image.url="https://resume.endlessmaker.com"
-LABEL org.opencontainers.image.source="https://github.com/amruthpillai/reactive-resume"
+LABEL org.opencontainers.image.vendor="NoorCV"
+LABEL org.opencontainers.image.url="https://noorcv.com"
+LABEL org.opencontainers.image.source="https://github.com/redwanJemal/reactive-resume"
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/*

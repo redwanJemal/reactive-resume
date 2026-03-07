@@ -1,12 +1,9 @@
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import type { Icon } from "@phosphor-icons/react";
-import { EnvelopeSimpleIcon, LinkedinLogoIcon, XLogoIcon } from "@phosphor-icons/react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { BrandIcon } from "@/components/ui/brand-icon";
-import { Button } from "@/components/ui/button";
 import { Copyright } from "@/components/ui/copyright";
 
 type FooterLinkItem = {
@@ -20,12 +17,6 @@ type FooterLinkGroupProps = {
 	links: FooterLinkItem[];
 };
 
-type SocialLink = {
-	url: string;
-	label: string;
-	icon: Icon;
-};
-
 const getProductLinks = (): FooterLinkItem[] => [
 	{ url: "#templates", label: t`Templates` },
 	{ url: "#frequently-asked-questions", label: t`FAQ` },
@@ -33,68 +24,38 @@ const getProductLinks = (): FooterLinkItem[] => [
 ];
 
 const getCompanyLinks = (): FooterLinkItem[] => [
-	{ url: "mailto:hello@hiregulf.com", label: t`Contact Us` },
-	{ url: "/privacy", label: t`Privacy Policy` },
-	{ url: "/terms", label: t`Terms of Service` },
-];
-
-const socialLinks: SocialLink[] = [
-	{ url: "https://linkedin.com/company/hiregulf", label: "LinkedIn", icon: LinkedinLogoIcon },
-	{ url: "https://x.com/hiregulf", label: "X (Twitter)", icon: XLogoIcon },
-	{ url: "mailto:hello@hiregulf.com", label: "Email", icon: EnvelopeSimpleIcon },
+	{ url: "mailto:hello@noorcv.com", label: t`Contact Us` },
+	{ url: "/privacy", label: t`Privacy Policy`, isRoute: true },
+	{ url: "/terms", label: t`Terms of Service`, isRoute: true },
 ];
 
 export function Footer() {
 	return (
-		<motion.footer
-			id="footer"
-			className="p-4 pb-8 md:p-8 md:pb-12"
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.6 }}
-		>
-			<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-				{/* Brand Column */}
-				<div className="space-y-4 sm:col-span-2 lg:col-span-1">
-					<BrandIcon variant="logo" className="size-10" />
-
-					<div className="space-y-2">
-						<h2 className="font-bold text-lg tracking-tight">HireGulf</h2>
-						<p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
-							<Trans>A free AI-powered resume builder designed for expats and professionals in the Gulf region.</Trans>
-						</p>
+		<footer id="footer" className="border-t bg-muted/20">
+			<div className="container mx-auto px-4 py-12 lg:px-12">
+				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+					{/* Brand Column */}
+					<div className="space-y-4 sm:col-span-2 lg:col-span-1">
+						<BrandIcon variant="logo" className="size-10" />
+						<div className="space-y-2">
+							<h2 className="font-bold text-lg tracking-tight">NoorCV</h2>
+							<p className="max-w-xs text-muted-foreground text-sm leading-relaxed">
+								<Trans>
+									A free AI-powered resume builder designed for expats and professionals in the Gulf region.
+								</Trans>
+							</p>
+						</div>
 					</div>
 
-					{/* Social Links */}
-					<div className="flex items-center gap-2 pt-2">
-						{socialLinks.map((social) => (
-							<Button key={social.label} size="icon-sm" variant="ghost" asChild>
-								<a
-									href={social.url}
-									target="_blank"
-									rel="noopener"
-									aria-label={`${social.label} (${t`opens in new tab`})`}
-								>
-									<social.icon aria-hidden="true" size={18} />
-								</a>
-							</Button>
-						))}
+					<FooterLinkGroup title={t`Product`} links={getProductLinks()} />
+					<FooterLinkGroup title={t`Company`} links={getCompanyLinks()} />
+
+					<div className="space-y-4 sm:col-span-2 lg:col-span-1">
+						<Copyright />
 					</div>
-				</div>
-
-				{/* Product Column */}
-				<FooterLinkGroup title={t`Product`} links={getProductLinks()} />
-
-				{/* Company Column */}
-				<FooterLinkGroup title={t`Company`} links={getCompanyLinks()} />
-
-				{/* Copyright Column */}
-				<div className="space-y-4 sm:col-span-2 lg:col-span-1">
-					<Copyright />
 				</div>
 			</div>
-		</motion.footer>
+		</footer>
 	);
 }
 
@@ -102,7 +63,6 @@ function FooterLinkGroup({ title, links }: FooterLinkGroupProps) {
 	return (
 		<div className="space-y-4">
 			<h2 className="font-medium text-muted-foreground text-sm tracking-tight">{title}</h2>
-
 			<ul className="space-y-3">
 				{links.map((link) => (
 					<FooterLink key={link.url} url={link.url} label={link.label} isRoute={link.isRoute} />

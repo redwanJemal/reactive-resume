@@ -1,0 +1,21 @@
+http:
+  routers:
+    noorcv-http:
+      middlewares:
+        - redirect-to-https
+      entryPoints:
+        - http
+      service: noorcv
+      rule: Host(`resume.endlessmaker.com`)
+    noorcv-https:
+      entryPoints:
+        - https
+      service: noorcv
+      rule: Host(`resume.endlessmaker.com`)
+      tls:
+        certresolver: letsencrypt
+  services:
+    noorcv:
+      loadBalancer:
+        servers:
+          - url: "http://noorcv-app:3000"

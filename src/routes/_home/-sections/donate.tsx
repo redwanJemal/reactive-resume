@@ -142,8 +142,8 @@ export const DonationBanner = () => (
 					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<Trans>
-						Join our newsletter for resume tips, Gulf job market insights, and HireGulf updates. Stay ahead in your
-						career journey across the Gulf region.
+						Join our newsletter for resume tips, Gulf job market insights, and NoorCV updates. Stay ahead in your career
+						journey across the Gulf region.
 					</Trans>
 				</motion.p>
 			</motion.div>
@@ -165,7 +165,7 @@ export const DonationBanner = () => (
 				<FeatureCard
 					icon={UsersIcon}
 					title={t`Product Updates`}
-					description={t`Be the first to know about new templates, AI features, and improvements to HireGulf.`}
+					description={t`Be the first to know about new templates, AI features, and improvements to NoorCV.`}
 					delay={0.5}
 				/>
 			</div>
@@ -179,7 +179,7 @@ export const DonationBanner = () => (
 				transition={{ duration: 0.6, delay: 0.6 }}
 			>
 				<Button asChild size="lg" className="h-11 gap-2 px-6">
-					<a href="mailto:hello@hiregulf.com?subject=Subscribe to HireGulf Newsletter">
+					<a href="mailto:hello@noorcv.com?subject=Subscribe to NoorCV Newsletter">
 						<EnvelopeSimpleIcon aria-hidden="true" weight="fill" className="text-primary-foreground" />
 						<Trans>Subscribe to Newsletter</Trans>
 					</a>
