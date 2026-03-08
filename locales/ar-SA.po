@@ -8,7 +8,7 @@ msgstr ""
 "Language: ar\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-02-09 22:30\n"
+"PO-Revision-Date: 2026-03-05 10:45\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -37,6 +37,11 @@ msgstr "الاسم"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 msgid "{0, plural, one {# item} other {# items}}"
 msgstr "{0, plural, zero {# عنصر} one {# عنصر} two {# عنصران} few {# عناصر} many {# عنصرًا} other {# عنصر}}"
+
+#. placeholder {0}: item.roles.length
+#: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
+msgid "{0, plural, one {# role} other {# roles}}"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -186,9 +191,17 @@ msgstr "إضافة عمود بعد"
 msgid "Add Column Before"
 msgstr "إضافة عمود قبل"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add multiple roles to show career progression at the same company."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
 msgstr "إضافة صفحة"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Add Role"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -659,7 +672,6 @@ msgstr "نسخ عنوان URL"
 #: src/routes/dashboard/blog/-components/blog-form.tsx
 msgid "Cover Image URL"
 msgstr ""
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Cover Letter"
@@ -892,6 +904,7 @@ msgstr "جاري حذف سيرتك الذاتية..."
 #: src/dialogs/resume/sections/certification.tsx
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
@@ -1009,7 +1022,6 @@ msgstr ""
 #: src/routes/dashboard/blog/$id.tsx
 msgid "Edit Blog Post"
 msgstr ""
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Education"
@@ -1157,6 +1169,10 @@ msgstr ""
 #: src/routes/_home/-sections/how-it-works.tsx
 msgid "Fill In Your Details"
 msgstr ""
+
+#: src/routes/_home/-sections/features.tsx
+msgid "Features"
+msgstr "الميزات"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
@@ -1768,6 +1784,13 @@ msgstr "المنظمة"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Our AI helps you write professional summaries, improve bullet points, and tailor content for Gulf employers."
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Period"
+msgstr ""
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Overall Title (optional)"
 msgstr ""
 
 #: src/utils/resume/section.tsx
@@ -1811,6 +1834,7 @@ msgstr "تم تمكين حماية كلمة المرور."
 
 #: src/dialogs/resume/sections/education.tsx
 #: src/dialogs/resume/sections/experience.tsx
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/project.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
 msgid "Period"
@@ -1846,6 +1870,7 @@ msgstr "يُرجى الانتظار أثناء إنشاء ملف PDF الخاص 
 msgid "Portrait"
 msgstr "طولي"
 
+#: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/experience.tsx
 #: src/dialogs/resume/sections/reference.tsx
 msgid "Position"
@@ -1989,6 +2014,10 @@ msgstr ""
 msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
 msgstr "هل تذكّرت كلمة المرور؟ <0><1>سجّل الدخول الآن <2/></1></0>"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Remove"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
 msgstr "إزالة كلمة المرور"
@@ -2004,6 +2033,10 @@ msgstr "جاري إزالة حماية كلمة المرور..."
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Rename"
 msgstr "إعادة التسمية"
+
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Reorder"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -2063,6 +2096,13 @@ msgstr ""
 msgid "Right Align"
 msgstr "محاذاة لليمين"
 
+#: src/dialogs/resume/sections/experience.tsx
+msgid "Role Progression"
+msgstr ""
+
+#: src/utils/locale.ts
+msgid "Romanian"
+msgstr "الرومانية"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "الدوران"
@@ -2792,7 +2832,6 @@ msgstr "المشاهدات"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Visa Status"
 msgstr ""
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Volunteer"
@@ -2980,3 +3019,6 @@ msgstr "تكبير"
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Zoom out"
 msgstr "تصغير"
+#: src/utils/locale.ts
+msgid "Zulu"
+msgstr "الزولو"
