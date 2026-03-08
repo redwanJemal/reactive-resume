@@ -10,8 +10,8 @@
     <!-- H lettermark - Crossbar -->
     <rect x="48" y="122" width="160" height="36" rx="6" fill="#FAFAFA"/>
   </g>
-  <!-- HireGulf wordmark -->
-  <text x="256" y="290" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="72" letter-spacing="-1" fill="#FAFAFA">HireGulf</text>
+  <!-- NoorCV wordmark -->
+  <text x="256" y="290" text-anchor="middle" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="72" letter-spacing="-1" fill="#FAFAFA">NoorCV</text>
   <!-- Decorative resume lines -->
   <line opacity="0.15" x1="100" y1="348" x2="412" y2="348" stroke="#C8A951" stroke-width="16" stroke-linecap="round"/>
   <line opacity="0.25" x1="100" y1="388" x2="340" y2="388" stroke="#C8A951" stroke-width="16" stroke-linecap="round"/>

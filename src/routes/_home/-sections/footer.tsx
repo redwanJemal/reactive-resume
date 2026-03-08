@@ -18,8 +18,8 @@ type FooterLinkGroupProps = {
 };
 
 const getProductLinks = (): FooterLinkItem[] => [
-	{ url: "#templates", label: t`Templates` },
-	{ url: "#frequently-asked-questions", label: t`FAQ` },
+	{ url: "/#templates", label: t`Templates` },
+	{ url: "/#frequently-asked-questions", label: t`FAQ` },
 	{ url: "/blog", label: t`Blog`, isRoute: true },
 ];
 
