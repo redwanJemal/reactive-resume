@@ -38,8 +38,8 @@ export function Hero() {
 						transition={{ duration: 0.6, delay: 0.15 }}
 					>
 						<Trans>
-							Your Gulf Career Starts with the{" "}
-							<span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">Right CV</span>
+							<span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">NoorCV</span>
+							{" "}— Your Free AI Resume Builder
 						</Trans>
 					</motion.h1>
 
@@ -50,8 +50,10 @@ export function Hero() {
 						transition={{ duration: 0.6, delay: 0.3 }}
 					>
 						<Trans>
-							NoorCV is the free AI resume builder made for Gulf professionals. Create polished CVs with nationality,
-							visa status, and bilingual support — ready for Saudi, UAE, Qatar & beyond.
+							NoorCV helps Gulf professionals and expats create polished, job-ready resumes. Our free online tool
+							features AI-powered writing assistance, Gulf-specific CV fields (nationality, visa status, date of birth),
+							bilingual Arabic & English support, and 14+ professional templates — designed for Saudi Arabia, UAE,
+							Qatar, Kuwait, Bahrain & Oman.
 						</Trans>
 					</motion.p>
 
